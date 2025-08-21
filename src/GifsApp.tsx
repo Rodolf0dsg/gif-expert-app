@@ -3,7 +3,8 @@ import { PreviousSearches } from "./gifs/PreviousSearches"
 import { CustomHeader } from "./shared/components/CustomHeader"
 import { SearchBar } from "./shared/components/SearchBar"
 import { useGifs } from "./gifs/hooks/useGifs";
-import { Loader } from './shared/components/loader';
+import { Loader } from './shared/components/Loader';
+
 
 export const GifsApp = () => {
 
