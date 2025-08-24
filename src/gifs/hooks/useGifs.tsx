@@ -5,9 +5,9 @@ import { Gif } from "../interfaces/gif.interface";
 
 export const useGifs = () => {
 
-    const [ searches, setSearches ] = useState<string[]>([]);
-    const [ gifData, setGifData ] = useState<Gif[]>([])
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [ searches, setSearches ]   = useState<string[]>([]);
+    const [ gifData, setGifData ]     = useState<Gif[]>([])
+    const [ isLoading, setIsLoading ] = useState<boolean>(false);
 
     const gifsCache = useRef<Record<string, Gif[]>>({});
 
@@ -20,6 +20,7 @@ export const useGifs = () => {
         setIsLoading(true);
         const gifs = await getGifsByQuery( term );
         setGifData( gifs );
+        gifsCache.current[ term ];
         setIsLoading(false)
     }
 
@@ -47,7 +48,7 @@ export const useGifs = () => {
     };
 
     const deleteSearch = ( element:string ) => {
-        setSearches( prev => prev.filter( search => search !== element) );
+        setSearches( prev => prev.filter( search => search !== element ));
     }
 
     return {
